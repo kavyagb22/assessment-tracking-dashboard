@@ -86,7 +86,6 @@ export const CommonTable: FC<TableProps> = forwardRef(
             errorInfo,
             loadingContent,
             isFrontEndPaging = true,
-            onRefresh,
         } = props;
         const [pageNo, setPageNo] = useState<number>(1);
         const [selectedKeys, setSelectedKeys] = useState<TSelection>(
