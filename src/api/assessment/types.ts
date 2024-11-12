@@ -4,5 +4,5 @@ export interface AssessmentData {
     title: string;
     date: string;
     status: string;
-    score: number | null;
+    score: string | null;
 }

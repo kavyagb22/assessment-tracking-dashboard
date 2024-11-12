@@ -7,6 +7,7 @@ import {
     getAssessmentAPI,
     updateAssessmentAPI,
 } from "@/api/assessment/index";
+import { AssessmentData } from "@/api/assessment/types";
 
 // Status options for filtering and adding assessments
 const STATUS_OPTIONS = [
@@ -25,7 +26,7 @@ export default function AssessmentPage() {
         score: "",
     });
     const [filterStatus, setFilterStatus] = useState("All");
-    const [editingScoreId, setEditingScoreId] = useState(null);
+    const [editingScoreId, setEditingScoreId] = useState(0);
     const [newScore, setNewScore] = useState("");
 
     // Define columns for the CommonTable
@@ -120,12 +121,12 @@ export default function AssessmentPage() {
         }
     };
 
-    const handleEditScore = (assessment) => {
+    const handleEditScore = (assessment: AssessmentData) => {
         setEditingScoreId(assessment.id);
         setNewScore(assessment.score ?? "");
     };
 
-    const handleSaveScore = async (item) => {
+    const handleSaveScore = async (item: AssessmentData) => {
         try {
             await updateAssessmentAPI(item.id, { ...item, score: newScore });
             fetchAssessments();
@@ -137,16 +138,16 @@ export default function AssessmentPage() {
     };
 
     const handleCancelEdit = () => {
-        setEditingScoreId(null);
+        setEditingScoreId(0);
         setNewScore("");
     };
 
-    const handleMarkAsCompleted = async (item) => {
+    const handleMarkAsCompleted = async (item: AssessmentData) => {
         console.log("mark: ", item);
         try {
             await updateAssessmentAPI(item.id, {
                 status: "Completed",
-                score: "0",
+                score: "--",
                 candidateName: item.candidateName,
                 title: item.title,
                 date: item.date,
@@ -178,7 +179,10 @@ export default function AssessmentPage() {
     const filteredData =
         filterStatus === "All"
             ? data
-            : data.filter((assessment) => assessment.status === filterStatus);
+            : data.filter(
+                  (assessment: AssessmentData) =>
+                      assessment.status === filterStatus
+              );
 
     return (
         <div className="p-8 bg-gray-900 text-white min-h-screen">
