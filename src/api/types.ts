@@ -22,6 +22,6 @@ export interface CommonApiResponse<T = any> {
 
 export type CommonApiError = null | {
     message: string;
-    // code: string | number;
+    code: string | number;
     status: ResponseStatusCode;
 };
