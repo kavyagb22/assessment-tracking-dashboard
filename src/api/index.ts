@@ -7,8 +7,10 @@ axios.defaults.baseURL = getAPIURL();
 
 export interface IResponse {
     category: string;
-    code: ResponseStatusCode;
+    // code: ResponseStatusCode;
+    status: ResponseStatusCode;
     message: string;
+    data?: any;
 }
 
 export interface IRequest {

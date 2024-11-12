@@ -1,5 +1,5 @@
 export interface AccountData {
     token: string;
-    // message: string;
-    // status: string;
+    message: string;
+    status: string;
 }
