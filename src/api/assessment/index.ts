@@ -1,6 +1,7 @@
 import { IResponse, postReq, getReq, putReq } from "../index";
 import { CommonApiResponse } from "../types";
 import { AssessmentData } from "./types";
+import { AxiosResponse } from "axios";
 
 interface CreateAssessmentBody {
     candidateName: string;
@@ -19,7 +20,7 @@ interface UpdateAssessmentBody {
 }
 
 export const getAssessmentAPI = async (): // body: LoginBody
-Promise<CommonApiResponse & { data: AssessmentData }> => {
+Promise<AxiosResponse & { data: AssessmentData }> => {
     const response = await getReq({
         path: "/assessments",
         // data: body,
@@ -30,7 +31,7 @@ Promise<CommonApiResponse & { data: AssessmentData }> => {
 export const createAssessmentAPI = async (
     body: CreateAssessmentBody
 ): // body: LoginBody
-Promise<CommonApiResponse & { data: AssessmentData }> => {
+Promise<AxiosResponse & { data: AssessmentData }> => {
     const response = await postReq({
         path: "/create-assessment",
         data: body,
@@ -42,7 +43,7 @@ export const updateAssessmentAPI = async (
     id: Number,
     body: UpdateAssessmentBody
 ): // body: LoginBody
-Promise<CommonApiResponse & { data: AssessmentData }> => {
+Promise<AxiosResponse & { data: AssessmentData }> => {
     const response = await putReq({
         path: `/update-assessment/${id}`,
         data: body,
