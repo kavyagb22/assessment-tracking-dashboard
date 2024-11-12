@@ -147,7 +147,7 @@ export default function AssessmentPage() {
         try {
             await updateAssessmentAPI(item.id, {
                 status: "Completed",
-                score: "--",
+                score: item.score,
                 candidateName: item.candidateName,
                 title: item.title,
                 date: item.date,
