@@ -20,6 +20,8 @@ export interface IRequest {
 
 export interface IPostReqest extends IRequest {
     data?: any;
+    message?: any;
+    status?: any;
 }
 
 export const postReq = async ({
