@@ -13,13 +13,15 @@ export const enum ResponseStatusCode {
 }
 
 export interface CommonApiResponse<T = any> {
-    category: string;
-    code: ResponseStatusCode;
-    data: T;
+    // category: string;
+    // code: ResponseStatusCode;
+    status: ResponseStatusCode;
+    data?: T;
     message: string;
 }
 
 export type CommonApiError = null | {
     message: string;
-    code: string | number;
+    // code: string | number;
+    status: ResponseStatusCode;
 };
