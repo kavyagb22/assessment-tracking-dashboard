@@ -9,7 +9,7 @@ interface LoginBody {
 
 export const loginAPI = async (
     body: LoginBody
-): Promise<CommonApiResponse & { data: AccountData }> => {
+): Promise<IResponse & { data: AccountData }> => {
     const response = await postReq({
         path: "/login",
         data: body,
