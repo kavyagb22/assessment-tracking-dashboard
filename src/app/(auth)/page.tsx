@@ -74,7 +74,7 @@ export default function Login() {
                         Sign In
                     </button>
                 </form>
-                <p className="text-sm text-center text-gray-400">
+                {/* <p className="text-sm text-center text-gray-400">
                     Don't have an account?{" "}
                     <a
                         href="/register"
@@ -82,7 +82,7 @@ export default function Login() {
                     >
                         Sign up
                     </a>
-                </p>
+                </p> */}
             </div>
             <ToastContainer position="bottom-center" autoClose={3000} />
         </div>
