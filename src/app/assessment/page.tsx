@@ -116,6 +116,13 @@ export default function AssessmentPage() {
         try {
             await createAssessmentAPI(newAssessment);
             fetchAssessments();
+            setNewAssessment({
+                candidateName: "",
+                title: "",
+                date: "",
+                status: "Pending",
+                score: "",
+            });
         } catch (error) {
             console.error("Error creating assessment:", error);
         }
